@@ -20,7 +20,7 @@ from time import sleep as zz
 
 def dload(url):
   if (len(url.split(".")) < 2) and (len(url.split(":")) < 3):
-    raise ValueError("input error : %s can't be a valid url or ip address") 
+    raise ValueError("input error: %s can't be a valid url or ip address") 
   C(["youtube-dl", 
     	"--no-check-certificate", 
     	url])
@@ -28,9 +28,11 @@ def dload(url):
     	 
 
 if __name__ == "__main__":
-  print(__doc__)
+  for a in __doc__.split('\n'):
+    print(a)
+    print('') 
+    zz(4.4)
   droid = sl4a.Android()
-  zz(6)
   print("\ndroid ready"+'\n'*2)
   zz(2.2)
   url = droid.dialogGetInput('Paste video link here').result
@@ -38,9 +40,9 @@ if __name__ == "__main__":
   print("got yoURL"+'\n'*2)  
   zz(.77)
   print("preparing youtube-dl") 
-  zz(6)
-  print("[ give it up to a minute - after that, it's best to check your network connection ] ") 
+  zz(.77)
+  print("[ give it up to a minute or two, but after that it's best to check your network connection ] ") 
   os.chdir("/sdcard/Download")
   pip.main(["install", "youtube-dl", "--upgrade"])
-  print("pip has properly pipped") 
+  print("pip has properly pipped. starting download") 
   dload(url) 

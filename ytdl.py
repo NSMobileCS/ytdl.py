@@ -19,25 +19,26 @@ from time import sleep as zz
 
 
 def dload(url):
+  if not url:
+    url = ' < no url provided > ' 
   if (len(url.split(".")) < 2) and (len(url.split(":")) < 3):
-    raise ValueError("input error: %s can't be a valid url or ip address") 
+    raise ValueError("\ninput error:\n  input url was \"%s\" but that can't be a valid url or ip address" % url) 
   C(["youtube-dl", 
-    	"--no-check-certificate", 
+    	"--no-check-certificate",
     	url])
   droid.makeToast("downloaded to Downloads folder /sdcard/Download") 
-    	 
+
 
 if __name__ == "__main__":
   for a in __doc__.split('\n'):
     print(a)
-    print('') 
-    zz(4.4)
+    zz(2)
   droid = sl4a.Android()
   print("\ndroid ready"+'\n'*2)
   zz(2.2)
   url = droid.dialogGetInput('Paste video link here').result
   zz(.77)
-  print("got yoURL"+'\n'*2)  
+  print("got yoURL"+'\n')  
   zz(.77)
   print("preparing youtube-dl") 
   zz(.77)
